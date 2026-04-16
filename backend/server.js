@@ -144,7 +144,7 @@ function calculateOrderTotal(items) {
 function signToken(username) {
     const ts = Date.now().toString();
     const payload = `${username}:${ts}`;
-    const signature = crypto.createHmac("sha256", adminSecret).update(payload).digest("hex");
+    const signature = crypto.createHmac("sha256", ADMIN_SECRET).update(payload).digest("hex");
     return Buffer.from(`${payload}:${signature}`).toString("base64url");
 }
 
@@ -154,7 +154,7 @@ function verifyToken(token) {
         const [username, ts, signature] = decoded.split(":");
         if (!username || !ts || !signature) return null;
         const payload = `${username}:${ts}`;
-        const expected = crypto.createHmac("sha256", adminSecret).update(payload).digest("hex");
+        const expected = crypto.createHmac("sha256", ADMIN_SECRET).update(payload).digest("hex");
         if (!safeCompare(signature, expected)) return null;
 
         const ageMs = Date.now() - Number(ts);
