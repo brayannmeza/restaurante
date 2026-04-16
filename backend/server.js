@@ -182,7 +182,9 @@ function serveStatic(req, res) {
         return;
     }
 
-    const filePath = path.join(__dirname, cleanUrl.slice(1));
+    // Buscar archivos en carpeta frontend (en producción)
+    const frontendPath = path.join(__dirname, "..", "frontend");
+    const filePath = path.join(frontendPath, cleanUrl.slice(1));
     const fs = require("fs");
 
     fs.readFile(filePath, (error, data) => {
