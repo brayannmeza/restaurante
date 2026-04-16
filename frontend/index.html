@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortaleza | Promociones y Pedidos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Fortaleza Nikkei</h1>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#menu">Carta</a></li>
+            <li><a href="#promos">Promociones</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="#pedido" class="btn-nav">Reservar / Pedir</a>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-text">
+            <p class="eyebrow">Bienvenidos a Fortaleza</p>
+            <h2>Vive lo mejor de la cocina nikkei peruana</h2>
+            <p>Disfruta nuestra carta, promociones y pedidos por WhatsApp en minutos.</p>
+            <a href="#menu" class="btn">Ver carta</a>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="about-grid">
+            <article class="about-card">
+                <h3>Ven y prueba lo mejor de Fortaleza</h3>
+                <p>Combinamos tecnica japonesa con sabor peruano para crear platos de autor con ingredientes frescos.</p>
+                <a href="#menu" class="btn-link">Ver mas</a>
+            </article>
+            <article class="about-card">
+                <h3>Horarios de atencion</h3>
+                <p><strong>Domingo a martes:</strong> 12:00 p.m. - 10:00 p.m.</p>
+                <p><strong>Miercoles a sabado:</strong> 12:00 p.m. - 11:00 p.m.</p>
+                <a href="#pedido" class="btn-link">Reservar ahora</a>
+            </article>
+        </div>
+    </section>
+
+    <section id="promos" class="promos">
+        <h2>Promociones y condiciones</h2>
+        <div class="promo-grid">
+            <article class="promo-card">
+                <h3>2x1 en Makis Fortaleza (3 y 4 sabores)</h3>
+                <p>Disponible todos los dias desde las 4:00 p.m. hasta cierre. Solo valido en salon.</p>
+            </article>
+            <article class="promo-card">
+                <h3>Almuerzos Ejecutivos</h3>
+                <p>De lunes a viernes de 12:00 p.m. a 4:00 p.m. Opciones segun disponibilidad.</p>
+            </article>
+            <article class="promo-card">
+                <h3>Compra 5 y paga 4</h3>
+                <p>Perfecto para oficina y grupos. No acumulable con otras promociones.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <h2>Nuestra carta</h2>
+        <div class="menu-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Pollo a la brasa">
+                <h3>Panceta de la Casa</h3>
+                <p>S/ 38.00</p>
+                <button onclick="agregar('Panceta de la Casa', 38)">Agregar</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2" alt="Ramen shoyu">
+                <h3>Shoyu Ramen Fortaleza</h3>
+                <p>S/ 34.00</p>
+                <button onclick="agregar('Shoyu Ramen Fortaleza', 34)">Agregar</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19" alt="Lomo saltado">
+                <h3>Lomo Saltado Nikkei</h3>
+                <p>S/ 39.00</p>
+                <button onclick="agregar('Lomo Saltado Nikkei', 39)">Agregar</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56" alt="Maki acevichado">
+                <h3>Maki Acevichado</h3>
+                <p>S/ 32.00</p>
+                <button onclick="agregar('Maki Acevichado', 32)">Agregar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="pedido" class="carrito">
+        <h2>Tu pedido</h2>
+        <ul id="lista"></ul>
+        <p>Total: S/ <span id="total">0.00</span></p>
+        <label for="metodoPago">Metodo de pago</label>
+        <select id="metodoPago">
+            <option value="Yape">Yape</option>
+            <option value="Mercado Pago">Mercado Pago</option>
+            <option value="PagoEfectivo">PagoEfectivo</option>
+        </select>
+        <button onclick="pedidoWhatsApp()">Enviar por WhatsApp</button>
+    </section>
+
+    <section class="testimonials">
+        <h2>Lo que opinan nuestros clientes</h2>
+        <div class="promo-grid">
+            <article class="promo-card">
+                <p>"Excelente fusion y atencion. El ramen y los makis fueron top."</p>
+                <strong>- Andrea M.</strong>
+            </article>
+            <article class="promo-card">
+                <p>"La presentacion y el sabor justifican totalmente volver cada semana."</p>
+                <strong>- Carlos R.</strong>
+            </article>
+            <article class="promo-card">
+                <p>"Pedimos para oficina y llego rapido, bien empaquetado y delicioso."</p>
+                <strong>- Team Orion</strong>
+            </article>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Suscribete a nuestras novedades</h2>
+        <p>Recibe promociones exclusivas y nuevas recomendaciones del chef.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Gracias por suscribirte.');">
+            <input type="email" placeholder="Tu correo" required>
+            <button type="submit">Suscribirme</button>
+        </form>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <h2>Contacto</h2>
+        <div class="contact-grid">
+            <div>
+                <p><strong>Telefono y WhatsApp:</strong> +51 932 522 826</p>
+                <p><strong>Direccion:</strong> Av. Santa Cruz 825, Miraflores</p>
+                <p><strong>Correo:</strong> reservas@fortaleza.pe</p>
+                <p><strong>Admin:</strong> <a href="admin.html">Panel de dueños</a></p>
+            </div>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <span>f</span> Facebook
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <span>ig</span> Instagram
+                </a>
+                <a href="https://wa.me/51932522826" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <span>wa</span> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Fortaleza Nikkei Food - Miraflores, Lima</p>
+        <p>Fortaleza 2026. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/51932522826" class="whatsapp" target="_blank" rel="noopener noreferrer">💬</a>
+
+    <script src="app.js"></script>
+</body>
+</html>

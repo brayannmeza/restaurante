@@ -1,0 +1,23 @@
+[
+  {
+    "id": "FRT-AA46B330-5321-4354-8B32-382E3ACA9E9E",
+    "fecha": "2026-04-16T14:56:06.700Z",
+    "items": [
+      {
+        "nombre": "Lomo Saltado Nikkei",
+        "precio": 39
+      },
+      {
+        "nombre": "Shoyu Ramen Fortaleza",
+        "precio": 34
+      },
+      {
+        "nombre": "Lomo Saltado Nikkei",
+        "precio": 39
+      }
+    ],
+    "total": 112,
+    "metodoPago": "Yape",
+    "estado": "Pendiente"
+  }
+]

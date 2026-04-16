@@ -1,0 +1,9 @@
+{
+  "admin": {
+    "username": "admin",
+    "passwordHash": "eae5ff8b742291c2d90c8d231f131ceb00ebd352a49ad9e51ae0d24206925504"
+  },
+  "security": {
+    "adminSecret": "7287349021899f5ac52e670028035481abe6b0aeb4af85cf6f5f2695627a487e"
+  }
+}

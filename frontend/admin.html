@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortaleza | Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Fortaleza | Administracion</h1>
+        <ul>
+            <li><a href="index.html">Ir a Clientes</a></li>
+            <li><a href="owner.html">Panel Operativo</a></li>
+        </ul>
+    </nav>
+
+    <section class="promos">
+        <div id="loginBox" class="carrito">
+            <h2>Login de administracion</h2>
+            <form id="loginForm">
+                <label for="usuario">Usuario</label>
+                <input id="usuario" type="text" placeholder="admin" autocomplete="username" required>
+
+                <label for="clave">Contrasena</label>
+                <div class="password-row">
+                    <input id="clave" type="password" placeholder="********" autocomplete="current-password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword()">Mostrar</button>
+                </div>
+
+                <button type="submit" id="loginBtn">Ingresar</button>
+                <p id="loginError" class="error-text"></p>
+            </form>
+            <p class="panel-note">Usa las credenciales configuradas en el servidor para gestionar pedidos.</p>
+        </div>
+
+        <div id="panelBox" class="hidden">
+            <h2>Panel de pedidos</h2>
+            <p class="panel-note">Pedidos registrados y sincronizados con el servidor.</p>
+            <p id="panelStatus" class="panel-note"></p>
+            <button class="mini-btn" type="button" onclick="logout()">Cerrar sesion</button>
+            <div class="table-wrap">
+                <table id="tablaPedidos">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Pago</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="admin.js"></script>
+</body>
+</html>
