@@ -1,0 +1,14 @@
+{
+  "name": "fortaleza-restaurante",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de pedidos para restaurante Fortaleza",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "build": "cd backend && npm install"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
