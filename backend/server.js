@@ -258,22 +258,31 @@ async function handleApi(req, res) {
             const username = String(body.username || "");
             const password = String(body.password || "");
 
+            console.log(`[LOGIN] Intento de login: usuario="${username}"`);
+
             const result = await pool.query(
                 "SELECT username, password_hash FROM admin_users WHERE username = $1",
                 [username]
             );
 
             if (result.rows.length === 0) {
+                console.log(`[LOGIN] Usuario no encontrado: ${username}`);
                 return sendJson(res, 401, { message: "Credenciales invalidas" });
             }
 
             const user = result.rows[0];
             const passwordHash = hashPassword(password);
+            
+            console.log(`[LOGIN] Hash enviado: ${passwordHash}`);
+            console.log(`[LOGIN] Hash en BD:   ${user.password_hash}`);
+            console.log(`[LOGIN] ¿Coinciden?: ${passwordHash === user.password_hash}`);
 
             if (!safeCompare(passwordHash, user.password_hash)) {
+                console.log(`[LOGIN] Contraseña incorrecta`);
                 return sendJson(res, 401, { message: "Credenciales invalidas" });
             }
 
+            console.log(`[LOGIN] ✓ Login exitoso para usuario: ${username}`);
             const token = signToken(username);
             return sendJson(res, 200, { token });
         }
